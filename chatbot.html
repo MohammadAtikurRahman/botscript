@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+   <h3>chatbot</h3>
+   <!-- <button id="toggle-chatbot"> Show/Hide Chatbot </button>
+   <div id="chatbot-container" style="display:none;"></div>
+   
+   <script>
+     var button = document.getElementById("toggle-chatbot");
+     var container = document.getElementById("chatbot-container");
+     var visible = false;
+   
+     button.addEventListener("click", function() {
+       if (!visible) {
+         container.innerHTML = '<iframe src="http://localhost:3000/" width="400" height="500"></iframe>';
+         container.style.display = "block";
+         visible = true;
+       } else {
+         container.innerHTML = '';
+         container.style.display = "none";
+         visible = false;
+       }
+     });
+   </script> -->
+   <script>
+    class ChatbotWidget {
+      constructor() {
+        this.widget = document.createElement("div");
+        this.widget.innerHTML = 
+          '<button id="toggle-chatbot"> Show/Hide Chatbot </button>' +
+          '<div id="chatbot-container" style="display:none;"></div>';
+        this.button = this.widget.querySelector("#toggle-chatbot");
+        this.container = this.widget.querySelector("#chatbot-container");
+        this.visible = false;
+  
+        this.button.addEventListener("click", this.toggle.bind(this));
+      }
+  
+      toggle() {
+        if (!this.visible) {
+          this.container.innerHTML = 
+            '<iframe src="http://localhost:3000/" width="400" height="500"></iframe>';
+          this.container.style.display = "block";
+          this.visible = true;
+        } else {
+          this.container.innerHTML = '';
+          this.container.style.display = "none";
+          this.visible = false;
+        }
+      }
+    }
+  
+    const chatbotWidget = new ChatbotWidget();
+    document.body.appendChild(chatbotWidget.widget);
+  </script>
+  
+
+      
+</body>
+</html>
